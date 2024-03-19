@@ -1,0 +1,39 @@
+#!/bin/bash
+
+method=$1
+for cells in "10" "100" "1000" "10000"
+do
+	for features in "10" "100" "1000" "10000" "100000"
+	do
+		num_elements=$(( cells * features ))
+
+		if [[ $num_elements > 10000000  || $num_elements < 10000000 ]]
+		then
+			continue
+		fi
+		
+		echo $cells, $features
+        for sparsity in 0.5 0.75 0.9 0.95 0.99
+        do
+            input=GeneratedSparse/${cells}_cells_${features}_features/$sparsity.mtx
+            for metric in "euclidean" "pearson" "kendall"
+            do
+                if [[ $num_elements > 10000000 && $metric == "kendall" ]]
+                then
+                    continue
+                fi
+                #times=25
+                if [[ $num_elements > 1000000 && $metric == "kendall" ]]
+                then
+                    times=5
+                else
+                    times=25
+                fi
+
+                folder=results/GeneratedSparse/${cells}_cells_${features}_features/$sparsity
+                mkdir -p $folder
+                echo test.R $input $method $times $metric 5000 $folder TRUE >> commands_sparse_$method.txt
+            done
+        done
+	done	
+done
