@@ -8,7 +8,7 @@ do
     do
         output=$(( i * j ))
 
-        if [[ $output == 100000 || $output == 100000 ]]
+        if [[ $output -ge 100000 && $output -le 10000000 ]]
         then
             echo $output "OK", $i, $j
         else
