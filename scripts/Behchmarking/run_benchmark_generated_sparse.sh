@@ -1,6 +1,8 @@
 #!/bin/bash
 
 method=$1
+ROOT_FOLDER=$2
+
 for cells in "10" "100" "1000" "10000"
 do
 	for features in "10" "100" "1000" "10000" "100000"
@@ -18,19 +20,9 @@ do
             input=GeneratedSparse/${cells}_cells_${features}_features/$sparsity.mtx
             for metric in "euclidean" "pearson" "kendall"
             do
-                if [[ $num_elements > 10000000 && $metric == "kendall" ]]
-                then
-                    continue
-                fi
-                #times=25
-                if [[ $num_elements > 1000000 && $metric == "kendall" ]]
-                then
-                    times=5
-                else
-                    times=25
-                fi
+                times=25
 
-                folder=results/GeneratedSparse/${cells}_cells_${features}_features/$sparsity
+                folder=${ROOT_FOLDER}/results/GeneratedSparse/${cells}_cells_${features}_features/$sparsity
                 mkdir -p $folder
                 echo test.R $input $method $times $metric 5000 $folder TRUE >> commands_sparse_$method.txt
             done

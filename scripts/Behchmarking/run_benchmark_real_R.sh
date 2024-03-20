@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+ROOT_FOLDER=$(realpath ../../)
 dataset=$1
 experiment_name=$2
 
@@ -20,15 +21,16 @@ do
             mkdir -p $output_folder
             times=10
             echo Rscript test.R $dataset $method $times $metric 5000 $output_folder/$density $dense
-            if [[ $density == "dense" && $method == "CPU" ]]
+            if [[ $density == "sparse" ]]
             then
-                continue
+                if [[ $method == "amap" || $method == "factoextra" ]]
+                then
+                    continue
+                fi
             fi
 
-
-            Rscript test.R $dataset $method $times $metric 5000 $output_folder/$density $dense $output_folder/${density}_matrix
+            Rscript test.R $dataset $method $times $metric 5000 ${ROOT_FOLDER}/$output_folder/$density $dense $output_folder/${density}_matrix
         done
     done
 done
 
-wait
