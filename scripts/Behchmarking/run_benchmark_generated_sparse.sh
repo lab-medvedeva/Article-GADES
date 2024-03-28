@@ -18,7 +18,7 @@ do
         for sparsity in 0.5 0.75 0.9 0.95 0.99
         do
             input=GeneratedSparse/${cells}_cells_${features}_features/$sparsity.mtx
-            for metric in "euclidean" "pearson" "kendall"
+            for metric in "kendall"
             do
                 times=25
 

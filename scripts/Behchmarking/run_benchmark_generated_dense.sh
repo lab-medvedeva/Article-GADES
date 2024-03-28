@@ -16,7 +16,7 @@ do
             else
                 echo $cells, $features
                 input=Generated/${cells}_cells_${features}_features.csv
-                for metric in "kendall" #"euclidean" "pearson" #"kendall"
+                for metric in "kendall"
                 do
                     folder=$ROOT_FOLDER/results/GeneratedDense/${cells}_cells_${features}_features/
                     mkdir -p $folder

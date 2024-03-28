@@ -8,9 +8,9 @@ experiment_name=$2
 output_folder=${experiment_name}
 for method in "CPU" "GPU" "amap" "factoextra"
 do
-    for metric in "pearson" "euclidean" "kendall"
+    for metric in "kendall"
     do
-        for density in "dense"
+        for density in "dense" "sparse"
         do
             if [[ $density == dense ]]
             then
