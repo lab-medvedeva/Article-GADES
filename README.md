@@ -16,7 +16,7 @@ Put the Real datasets in the MEX format to the folder `Datasets/Real`.
 ```shell
 docker run --gpus all \
     -v $PWD/Datasets:/workspace/Article-GADES/Datasets \
-    -v $PWD/results:/workspace/Article-GADES/Results \
+    -v $PWD/results:/workspace/Article-GADES/results \
     akhtyamovpavel/article-gades 
 ```
 
