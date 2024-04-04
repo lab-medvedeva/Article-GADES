@@ -69,4 +69,16 @@ Example:
 
 ## Step 03. Drawing charts
 
+We split reproducibility notebooks into two parts:
+* Aggregation over datasets
+* Plotting charts
 
+### Aggregation
+
+1. For Generated Dense datasets you could use the [GeneratedDatasetsCollector](/reproducibility/00-GeneratedDatasetsCollector.ipynb) notebook.
+2. For Generated Sparse datasets you could use the [GeneratedSparseCollector](/reproducibility/00-GeneratedSparseCollector.ipynb) notebook.
+
+### Analyzing datasets
+
+1. Generated datasets analyzed in the [GeneratedDatasetAnalysis](/reproducibility/GeneratedDatasetAnalysis.ipynb) notebook.
+2. Real datasets analyzed in the [RealDatasetAnalysis](/reproducibility/RealDatasetsAnalysis.ipynb) notebook.
