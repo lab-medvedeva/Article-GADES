@@ -1,6 +1,5 @@
 import os
 
-os.environ['OPENBLAS_NUM_THREADS'] = '24'  # setup for Pearson matrix calculation
 from scipy.stats import kendalltau
 from scipy.spatial.distance import pdist
 from sklearn.metrics import pairwise_distances
@@ -64,7 +63,7 @@ if __name__ == '__main__':
 
                 output = np.zeros((np_array.shape[0], np_array.shape[0]), dtype=np.float32)
 
-                output_results = process_map(function, list_indices, chunksize=10000)
+                output_results = process_map(function, list_indices, chunksize=10000, max_workers=args.num_threads)
                 for (i, j), distance in zip(list_indices, output_results):
                     output[i, j] = distance
                     output[j, i] = distance

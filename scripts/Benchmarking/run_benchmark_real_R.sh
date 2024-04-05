@@ -9,7 +9,7 @@ for method in "CPU" "GPU" "amap" "factoextra"
 do
     for metric in "kendall"
     do
-        for density in "dense"
+        for density in "dense" "sparse"
         do
             if [[ $density == dense ]]
             then
@@ -20,15 +20,16 @@ do
             mkdir -p $output_folder
             times=10
             echo Rscript test.R $dataset $method $times $metric 5000 $output_folder/$density $dense
-            if [[ $density == "dense" && $method == "CPU" ]]
+            if [[ $density == "sparse" ]]
             then
-                continue
+                if [[ $method == "amap" || $method == "factoextra" ]]
+                then
+                    continue
+                fi
             fi
-
 
             Rscript test.R $dataset $method $times $metric 5000 $output_folder/$density $dense $output_folder/${density}_matrix
         done
     done
 done
 
-wait

@@ -2,7 +2,7 @@
 
 ROOT_FOLDER=$1
 
-for method in "amap" "CPU" "amap" "GPU"
+for method in "GPU" "CPU" "amap" "factoextra"
 do
     for cells in "10" "100" "1000" "10000"
     do
@@ -15,12 +15,12 @@ do
                 continue
             else
                 echo $cells, $features
-                input=Generated/${cells}_cells_${features}_features.csv
+                input=${ROOT_FOLDER}/Datasets/Generated/${cells}_cells_${features}_features.csv
                 for metric in "kendall"
                 do
-                    folder=$ROOT_FOLDER/results/GeneratedDense/${cells}_cells_${features}_features/
+                    folder=${ROOT_FOLDER}/results/GeneratedDense/${cells}_cells_${features}_features/
                     mkdir -p $folder
-                    Rscript test.R $input $method 25 $metric 5000 $folder FALSE
+                    Rscript test.R $input $method 25 $metric 5000 $folder FALSE temp
                 done
             fi
         done	

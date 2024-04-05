@@ -43,6 +43,8 @@ cd ./scripts/MatricesGeneration
 cd ./scripts/Behchmarking
 
 ./run_benchmark_generated_dense.sh ../../
+
+./run_benchmark_python_dense.sh ../../
 ```
 
 ### Step 02.2. Generated Sparse Datasets
@@ -59,6 +61,7 @@ cd ./scripts/Behchmarking/
 
 cd ./Scripts/Benchmarking/
 ./run_benchmark_real_python.sh <path to dataset> ../../results/RealDatasets/<name of the real dataset>/
+./run_benchmark_real_R.sh <path to dataset> ../../results/RealDatasets/<name of the dataset>/
 ```
 
 Example:
