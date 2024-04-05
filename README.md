@@ -36,11 +36,11 @@ cd ./scripts/MatricesGeneration
 ./generate_sparse.sh ../../Datasets/
 ```
 
-## Step 02. Behchmarking
+## Step 02. Benchmarking
 
 ### Step 02.1. Generated Dense Datasets
 ```shell
-cd ./scripts/Behchmarking
+cd ./scripts/Benchmarking
 
 ./run_benchmark_generated_dense.sh ../../
 
@@ -51,7 +51,7 @@ cd ./scripts/Behchmarking
 
 ```shell
 
-cd ./scripts/Behchmarking/
+cd ./scripts/Benchmarking/
 
 ./run_benchmark_generated_sparse.sh ../../
 ```
