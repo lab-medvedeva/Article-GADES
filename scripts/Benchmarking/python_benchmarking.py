@@ -1,5 +1,6 @@
 import os
 
+import sys
 from scipy.stats import kendalltau
 from scipy.spatial.distance import pdist
 from sklearn.metrics import pairwise_distances
@@ -12,6 +13,7 @@ from argparse import ArgumentParser
 import json
 from tqdm import tqdm
 import scipy.io
+import gc
 from tqdm.contrib.concurrent import process_map
 import psutil
 
@@ -30,8 +32,8 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
     process = psutil.Process(os.getpid())
-    if args.profile:
-        gc.disable()
+#    if args.profile:
+#        gc.disable()
     if args.input.endswith('.mtx'):
         mtx = scipy.io.mmread(args.input)
         if args.profile:
@@ -53,6 +55,8 @@ if __name__ == '__main__':
     def kendall(a, b):
         return (1.0 - kendalltau(a, b).correlation) / 2.0
 
+    if args.profile:
+        memories = []
     times = []
     
     functions = {
@@ -91,7 +95,7 @@ if __name__ == '__main__':
                 'result': result_memory_usage,
                 'output': output_usage,
                 'found': memory_usage,
-            })        
+            })
         end = time.time()
 
         diff = (end - start) * 1000000
