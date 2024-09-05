@@ -70,6 +70,19 @@ Example:
 ```
 
 
+### Step 02.4. Ablation Study for the Batch Size Usage
+
+### Step 02.5. Ablation Study for the Memory Usage
+```
+cd ./Scripts/Benchmarking
+./run_benchmark_real_python_memory_usage.sh <path to dataset> ../../results/RealDatasetsBatchSizeFixedMemory/<name of the real dataset>/500/
+```
+
+Example:
+```
+./run_benchmark_real_python_memory_usage.sh ../../Datasets/CellLines.mtx ../../results/RealDatasetsBatchSizeFixedMemory/CellLines/500/
+```
+
 ## Step 03. Drawing charts
 
 We split reproducibility notebooks into two parts:

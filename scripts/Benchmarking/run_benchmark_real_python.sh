@@ -6,7 +6,7 @@ dataset=$1
 experiment_name=$2
 
 output_folder=${experiment_name}
-for method in "pythonic" "pandas"
+for method in "pythonic" #"pandas"
 do
     for metric in "kendall"
     do
