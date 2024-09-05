@@ -17,6 +17,7 @@ profile = as.logical(args[9])
 
 if (profile) {
     library(profmem)
+    library(ps)
 }
 print(glue('Reading table. Output folder will be {output}_{method}_{metric}.csv'))
 
