@@ -98,3 +98,4 @@ We split reproducibility notebooks into two parts:
 
 1. Generated datasets analyzed in the [GeneratedDatasetAnalysis](/reproducibility/GeneratedDatasetAnalysis.ipynb) notebook.
 2. Real datasets analyzed in the [RealDatasetAnalysis](/reproducibility/RealDatasetsAnalysis.ipynb) notebook.
+3. Analysis of ablation study could be found in the [reproducibility](/reproducibility/03-AblationStudy.ipynb) notebook.
