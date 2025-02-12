@@ -222,11 +222,10 @@ int main(int argc, char* argv[])
   std::fstream out(output, std::fstream::out);
   for (size_t i = 0; i < measurements.size(); ++i)
   {
-    std::cout << " " << measurements[i];
     out << measurements[i];
     if (i + 1 != measurements.size())
     {
-      out << ',';
+      out << '\n';
     }
   }
   out.close();
